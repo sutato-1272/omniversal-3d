@@ -3,70 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMNIVERSAL | 3D Glassmorphism Experience</title>
-    <meta name="description" content="Jasa Landing Page masa depan dengan efek Glassmorphism dan Spline 3D. Tinggalkan desain standar, saatnya tampil beda dan mendominasi.">
+    <title>OMNIVERSAL | 3D Border Beam Experience</title>
+    <meta name="description" content="Jasa Landing Page masa depan dengan efek Border Beam Glassmorphism dan Spline 3D. Eksklusif, futuristik, dan mendominasi.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.28/build/spline-viewer.js"></script>
 
     <style>
-        :root { --accent: #818cf8; --glass: rgba(255, 255, 255, 0.03); --border: rgba(255, 255, 255, 0.1); }
+        :root { --accent: #818cf8; --secondary: #ec4899; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #000; color: #fff; margin: 0; overflow-x: hidden; }
 
-        /* Background Aura Animasi (Referensi Aura Build) */
+        /* Background Aura Master */
         .aura-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #000 80%);
+            background: radial-gradient(circle at 50% 50%, #0f172a 0%, #000 100%);
             z-index: -2;
         }
-        .aura-glow {
-            position: fixed; top: -10%; right: -10%; width: 50%; height: 50%;
-            background: radial-gradient(circle, rgba(129, 140, 248, 0.15) 0%, transparent 70%);
-            filter: blur(80px); z-index: -1;
-        }
 
-        /* Glassmorphism Effect */
-        .glass-panel {
-            background: var(--glass);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-        }
-
-        /* Aura Button (Aura Build Style A034D) */
+        /* ULTIMATE BORDER BEAM GLASS BUTTON (Ref: Aura.build) */
         .aura-btn {
-            position: relative; padding: 1rem 2.5rem; background: #000; border-radius: 12px;
-            font-weight: 800; overflow: hidden; border: 1px solid var(--border); transition: 0.3s;
+            position: relative;
+            display: inline-flex;
+            padding: 1.25rem 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            overflow: hidden;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .aura-btn::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: conic-gradient(transparent, transparent, var(--accent), transparent);
-            animation: rotate 4s linear infinite; z-index: -1;
-        }
-        .aura-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(129, 140, 248, 0.3); border-color: var(--accent); }
-        @keyframes rotate { 100% { transform: rotate(360deg); } }
 
-        /* Spline Tuning */
-        .spline-wrap { position: absolute; inset: 0; z-index: 0; }
-        .hero-content { position: relative; z-index: 10; min-height: 100vh; display: flex; align-items: center; }
+        /* Cahaya yang berputar (The Beam) */
+        .aura-btn::before {
+            content: '';
+            position: absolute;
+            inset: -200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 280deg,
+                var(--accent) 320deg,
+                var(--secondary) 360deg
+            );
+            animation: rotate-beam 3s linear infinite;
+            z-index: -2;
+        }
+
+        /* Background Hitam di Tengah untuk efek Border */
+        .aura-btn::after {
+            content: '';
+            position: absolute;
+            inset: 1.5px; /* Ketebalan Border */
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            z-index: -1;
+            transition: background 0.3s;
+        }
+
+        .aura-btn:hover::after {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .aura-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(129, 140, 248, 0.2);
+        }
+
+        @keyframes rotate-beam {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Glass Panel Styling */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+        }
 
         .text-gradient {
-            background: linear-gradient(to right, #fff, var(--accent));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
+        /* Spline Mobile Optimizer */
+        .spline-wrap { position: absolute; inset: 0; z-index: 0; }
+        .hero-content { position: relative; z-index: 10; min-height: 100vh; display: flex; align-items: center; }
     </style>
 </head>
 <body>
 
     <div class="aura-bg"></div>
-    <div class="aura-glow"></div>
 
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-[100] px-8 py-4 flex justify-between items-center glass-panel">
-        <div class="text-xl font-black italic tracking-tighter">OMNI<span class="text-indigo-400">VERSAL.</span></div>
-        <a href="https://wa.me/6285283212205" class="bg-indigo-500 hover:bg-indigo-600 px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all">
-            CONSULT
-        </a>
+    <nav class="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-[100] px-8 py-5 flex justify-between items-center glass-panel">
+        <div class="text-xl font-black tracking-tighter italic">OMNI<span class="text-indigo-500">VERSAL.</span></div>
+        <a href="https://wa.me/6285283212205" class="text-[10px] font-extrabold tracking-widest border border-white/10 px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all uppercase">Connect</a>
     </nav>
 
     <section class="relative">
@@ -76,17 +113,21 @@
 
         <div class="hero-content px-6">
             <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 items-center gap-12">
-                <div class="glass-panel p-8 md:p-12 border-l-4 border-l-indigo-500">
-                    <span class="text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Future Digital Identity</span>
-                    <h1 class="text-5xl md:text-8xl font-black leading-none mb-8 tracking-tighter">
-                        LEVEL <br> <span class="text-gradient italic font-light">BEYOND.</span>
+                <div class="glass-panel p-10 md:p-16 border-t border-white/10 shadow-2xl">
+                    <div class="inline-flex items-center gap-2 mb-6 bg-indigo-500/10 px-4 py-1 rounded-full border border-indigo-500/20">
+                        <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
+                        <span class="text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em]">The New Standard</span>
+                    </div>
+                    <h1 class="text-6xl md:text-[85px] font-black leading-[0.9] mb-10 tracking-tighter">
+                        ULTIMATE <br> <span class="text-gradient font-light italic text-5xl md:text-7xl">EXPERIENCE.</span>
                     </h1>
-                    <p class="text-gray-400 text-base md:text-lg mb-10 leading-relaxed font-light">
-                        Kami tidak membuat website biasa. Kami membangun <span class="text-white font-bold">Mahakarya Visual Interaktif</span> yang memposisikan brand Anda di puncak ekosistem digital.
+                    <p class="text-gray-400 text-base md:text-lg mb-12 leading-relaxed font-light">
+                        Membangun landing page bukan sekadar menaruh gambar. Kami merancang <span class="text-white font-bold">Ekosistem Digital Imersif</span> yang mengonversi pengunjung menjadi pembeli militan.
                     </p>
-                    <button class="aura-btn">
-                        <a href="https://wa.me/6285283212205">START PROJECT →</a>
-                    </button>
+                    
+                    <a href="https://wa.me/6285283212205" class="aura-btn">
+                        <span>Amankan Slot Projek →</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -94,46 +135,35 @@
 
     <section class="py-32 px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4">MENGAPA HARUS KAMI?</h2>
-                <div class="h-1 w-20 bg-indigo-500 mx-auto"></div>
-            </div>
-
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-panel p-10 group hover:border-indigo-500/50 transition-all">
-                    <div class="w-14 h-14 bg-indigo-500/20 rounded-2xl mb-8 flex items-center justify-center border border-indigo-500/30">
-                        <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Spatial Design</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Pengalaman 3D yang memberikan kedalaman visual pada setiap interaksi pengunjung Anda.</p>
+                <div class="glass-panel p-12 hover:scale-[1.02] transition-transform">
+                    <h3 class="text-2xl font-black mb-4 italic text-indigo-400">01. Spatial UI</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Interface yang bereaksi terhadap pergerakan user, menciptakan koneksi emosional instan.</p>
                 </div>
-
-                <div class="glass-panel p-10 group hover:border-indigo-500/50 transition-all">
-                    <div class="w-14 h-14 bg-indigo-500/20 rounded-2xl mb-8 flex items-center justify-center border border-indigo-500/30">
-                        <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Elite Tech</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Kombinasi Tailwind, Spline, dan Vercel untuk kecepatan loading yang tak tertandingi.</p>
+                <div class="glass-panel p-12 hover:scale-[1.02] transition-transform">
+                    <h3 class="text-2xl font-black mb-4 italic text-pink-400">02. Ultra Tech</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Kombinasi kodingan bersih dan server edge Vercel untuk performa loading secepat kilat.</p>
                 </div>
-
-                <div class="glass-panel p-10 group hover:border-indigo-500/50 transition-all">
-                    <div class="w-14 h-14 bg-indigo-500/20 rounded-2xl mb-8 flex items-center justify-center border border-indigo-500/30">
-                        <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 14.535a11.99 11.99 0 008.132 11.322L12 26l.868-.143a11.99 11.99 0 008.132-11.322l-.932-8.52z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Authority SEO</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Struktur kodingan yang "disukai" Google, memastikan brand Anda mudah ditemukan.</p>
+                <div class="glass-panel p-12 hover:scale-[1.02] transition-transform">
+                    <h3 class="text-2xl font-black mb-4 italic text-purple-400">03. Dominance</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Didesain untuk menang. Kami memastikan brand Anda terlihat lebih elit dibanding kompetitor.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 px-6 relative z-10">
-        <div class="max-w-4xl mx-auto glass-panel p-12 text-center">
-            <h2 class="text-3xl font-black mb-10 tracking-widest uppercase">Visit Our Orbit</h2>
-            <div class="rounded-2xl overflow-hidden grayscale invert opacity-20 border border-white/10 mb-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126906.848821952!2d106.6341235!3d-6.2293867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8e288e0f9b3%3A0x401576d15932020!2sCiledug%2C%20Kota%20Tangerang%2C%20Banten!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <footer class="py-24 px-6 relative z-10">
+        <div class="max-w-5xl mx-auto glass-panel p-10 md:p-20 text-center">
+            <h2 class="text-4xl font-black mb-12 tracking-tighter">OUR COMMAND CENTER</h2>
+            <div class="rounded-3xl overflow-hidden grayscale invert opacity-20 border border-white/5 mb-16 shadow-inner">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126906.848821952!2d106.6341235!3d-6.2293867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8e288e0f9b3%3A0x401576d15932020!2sCiledug%2C%20Kota%20Tangerang%2C%20Banten!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <p class="text-gray-600 text-[10px] font-bold tracking-[1em] uppercase">OMNIVERSAL AGENCY © 2026</p>
+            <div class="flex flex-col items-center gap-6">
+                 <a href="https://wa.me/6285283212205" class="aura-btn">
+                    <span>Mulai Konsultasi Strategis</span>
+                </a>
+                <p class="text-gray-700 text-[10px] font-bold tracking-[1.5em] uppercase mt-10">OMNIVERSAL AGENCY © 2026</p>
+            </div>
         </div>
     </footer>
 
