@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMNIVERSAL | 3D Border Beam Experience</title>
-    <meta name="description" content="Jasa Landing Page masa depan dengan efek Border Beam Glassmorphism dan Spline 3D. Eksklusif, futuristik, dan mendominasi.">
+    
+    <title>OMNIVERSAL | Jasa Landing Page 3D & Spatial UI Terpercaya</title>
+    <meta name="description" content="Dominasi pasar dengan Landing Page Interaktif 3D. Spesialis Spatial UI, Glassmorphism, dan High-Conversion Design untuk brand elit.">
+    <meta name="keywords" content="Jasa Landing Page, Web 3D, Spline 3D, Landing Page Mewah, SEO Friendly Web">
+    <meta name="author" content="Omniversal Agency">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omniversal-3d.vercel.app/">
+    <meta property="og:title" content="OMNIVERSAL | Jasa Landing Page 3D Masa Depan">
+    <meta property="og:description" content="Ubah pengunjung menjadi pembeli militan dengan pengalaman visual imersif.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1000">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.28/build/spline-viewer.js"></script>
@@ -13,157 +23,127 @@
         :root { --accent: #818cf8; --secondary: #ec4899; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #000; color: #fff; margin: 0; overflow-x: hidden; }
 
-        /* Background Aura Master */
-        .aura-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #0f172a 0%, #000 100%);
-            z-index: -2;
-        }
-
-        /* ULTIMATE BORDER BEAM GLASS BUTTON (Ref: Aura.build) */
-        .aura-btn {
-            position: relative;
-            display: inline-flex;
-            padding: 1.25rem 3rem;
+        /* HEADER KACA TRANSPARAN (RE-IMPLEMENTED) */
+        .glass-nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1000px; z-index: 1000;
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            overflow: hidden;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-size: 0.75rem;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            padding: 12px 24px;
+            display: flex; justify-content: space-between; items-center;
+            transition: all 0.5s ease;
+        }
+        .glass-nav:hover { background: rgba(255, 255, 255, 0.07); border-color: var(--accent); }
+
+        /* BORDER BEAM BUTTON (GILA VERSION) */
+        .border-beam-btn {
+            position: relative; display: inline-flex; padding: 1rem 2.5rem;
+            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);
+            border-radius: 12px; overflow: hidden; font-weight: 800;
+            letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        /* Cahaya yang berputar (The Beam) */
-        .aura-btn::before {
-            content: '';
-            position: absolute;
-            inset: -200%;
-            background: conic-gradient(
-                from 0deg,
-                transparent 0deg,
-                transparent 280deg,
-                var(--accent) 320deg,
-                var(--secondary) 360deg
-            );
-            animation: rotate-beam 3s linear infinite;
-            z-index: -2;
+        .border-beam-btn::before {
+            content: ''; position: absolute; inset: -200%;
+            background: conic-gradient(from 0deg, transparent 0deg, transparent 280deg, var(--accent) 320deg, var(--secondary) 360deg);
+            animation: rotate-beam 3s linear infinite; z-index: -2;
         }
-
-        /* Background Hitam di Tengah untuk efek Border */
-        .aura-btn::after {
-            content: '';
-            position: absolute;
-            inset: 1.5px; /* Ketebalan Border */
-            background: rgba(0, 0, 0, 0.9);
-            border-radius: 15px;
-            z-index: -1;
-            transition: background 0.3s;
+        .border-beam-btn::after {
+            content: ''; position: absolute; inset: 1.5px;
+            background: rgba(0, 0, 0, 0.9); border-radius: 11px; z-index: -1;
         }
+        @keyframes rotate-beam { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .border-beam-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(129, 140, 248, 0.3); }
 
-        .aura-btn:hover::after {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .aura-btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(129, 140, 248, 0.2);
-        }
-
-        @keyframes rotate-beam {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Glass Panel Styling */
+        /* GRID CONTENT SYSTEM */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 32px;
         }
+        .text-gradient { background: linear-gradient(135deg, #fff 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Spline Mobile Optimizer */
+        /* SPLINE WRAPPER */
         .spline-wrap { position: absolute; inset: 0; z-index: 0; }
-        .hero-content { position: relative; z-index: 10; min-height: 100vh; display: flex; align-items: center; }
+        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
     </style>
 </head>
 <body>
 
-    <div class="aura-bg"></div>
+    <header class="glass-nav">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center font-black text-xs">O</div>
+            <span class="font-black tracking-tighter italic text-sm">OMNI<span class="text-indigo-400">VERSAL.</span></span>
+        </div>
+        <nav class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+            <a href="#" class="hover:text-white">Tech</a>
+            <a href="#" class="hover:text-white">Showcase</a>
+            <a href="#" class="hover:text-white">SEO</a>
+        </nav>
+        <a href="https://wa.me/6285283212205" class="text-[10px] font-black bg-white text-black px-4 py-2 rounded-full uppercase tracking-tighter">Consult</a>
+    </header>
 
-    <nav class="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-[100] px-8 py-5 flex justify-between items-center glass-panel">
-        <div class="text-xl font-black tracking-tighter italic">OMNI<span class="text-indigo-500">VERSAL.</span></div>
-        <a href="https://wa.me/6285283212205" class="text-[10px] font-extrabold tracking-widest border border-white/10 px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all uppercase">Connect</a>
-    </nav>
-
-    <section class="relative">
+    <section class="hero-section px-6">
         <div class="spline-wrap">
             <spline-viewer url="https://prod.spline.design/6Wq1Q7YRyM6Z9n3Z/scene.splinecode"></spline-viewer>
         </div>
 
-        <div class="hero-content px-6">
-            <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 items-center gap-12">
-                <div class="glass-panel p-10 md:p-16 border-t border-white/10 shadow-2xl">
-                    <div class="inline-flex items-center gap-2 mb-6 bg-indigo-500/10 px-4 py-1 rounded-full border border-indigo-500/20">
-                        <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
-                        <span class="text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em]">The New Standard</span>
-                    </div>
-                    <h1 class="text-6xl md:text-[85px] font-black leading-[0.9] mb-10 tracking-tighter">
-                        ULTIMATE <br> <span class="text-gradient font-light italic text-5xl md:text-7xl">EXPERIENCE.</span>
-                    </h1>
-                    <p class="text-gray-400 text-base md:text-lg mb-12 leading-relaxed font-light">
-                        Membangun landing page bukan sekadar menaruh gambar. Kami merancang <span class="text-white font-bold">Ekosistem Digital Imersif</span> yang mengonversi pengunjung menjadi pembeli militan.
-                    </p>
-                    
-                    <a href="https://wa.me/6285283212205" class="aura-btn">
-                        <span>Amankan Slot Projek →</span>
-                    </a>
+        <div class="max-w-7xl mx-auto w-full relative z-10">
+            <div class="max-w-3xl glass-panel p-8 md:p-16 border-l-4 border-l-indigo-500 shadow-2xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded text-[10px] font-bold text-indigo-400 uppercase tracking-widest">Web 3.0 Generation</span>
                 </div>
+                <h1 class="text-5xl md:text-[85px] font-black leading-[0.9] mb-8 tracking-tighter">
+                    THE <span class="text-gradient font-light italic">FUTURE</span> <br> IS SPATIAL.
+                </h1>
+                <p class="text-gray-400 text-base md:text-xl mb-12 leading-relaxed font-light">
+                    Hentikan konversi yang rendah. Kami membangun <span class="text-white font-bold italic">Landing Page Interaktif</span> yang membius mata dan meyakinkan logika pelanggan Anda secara instan.
+                </p>
+                
+                <a href="https://wa.me/6285283212205" class="border-beam-btn">
+                    <span>Mulai Dominasi Pasar →</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-panel p-12 hover:scale-[1.02] transition-transform">
-                    <h3 class="text-2xl font-black mb-4 italic text-indigo-400">01. Spatial UI</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Interface yang bereaksi terhadap pergerakan user, menciptakan koneksi emosional instan.</p>
+    <section class="py-32 px-6 relative z-10 bg-black/40 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="glass-panel p-10 hover:border-indigo-500/40 transition-all group">
+                <div class="text-indigo-500 mb-6 group-hover:scale-110 transition-transform">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
-                <div class="glass-panel p-12 hover:scale-[1.02] transition-transform">
-                    <h3 class="text-2xl font-black mb-4 italic text-pink-400">02. Ultra Tech</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Kombinasi kodingan bersih dan server edge Vercel untuk performa loading secepat kilat.</p>
+                <h3 class="text-xl font-bold mb-4">Wussss Performance</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Kodingan bersih tanpa bloatware. Loading secepat kilat meski menggunakan aset 3D kompleks.</p>
+            </div>
+            
+            <div class="glass-panel p-10 hover:border-indigo-500/40 transition-all group">
+                <div class="text-indigo-500 mb-6 group-hover:scale-110 transition-transform">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
-                <div class="glass-panel p-12 hover:scale-[1.02] transition-transform">
-                    <h3 class="text-2xl font-black mb-4 italic text-purple-400">03. Dominance</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Didesain untuk menang. Kami memastikan brand Anda terlihat lebih elit dibanding kompetitor.</p>
+                <h3 class="text-xl font-bold mb-4">SEO Supremacy</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Daftarkan URL Anda dan biarkan meta-tag kami bekerja menarik robot Google ke puncak ranking.</p>
+            </div>
+
+            <div class="glass-panel p-10 hover:border-indigo-500/40 transition-all group">
+                <div class="text-indigo-500 mb-6 group-hover:scale-110 transition-transform">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 14.535a11.99 11.99 0 008.132 11.322L12 26l.868-.143a11.99 11.99 0 008.132-11.322l-.932-8.52z"></path></svg>
                 </div>
+                <h3 class="text-xl font-bold mb-4">Conversion Psych</h3>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Setiap elemen desain dibuat berdasarkan data perilaku manusia untuk hasil closing maksimal.</p>
             </div>
         </div>
     </section>
 
     <footer class="py-24 px-6 relative z-10">
-        <div class="max-w-5xl mx-auto glass-panel p-10 md:p-20 text-center">
-            <h2 class="text-4xl font-black mb-12 tracking-tighter">OUR COMMAND CENTER</h2>
-            <div class="rounded-3xl overflow-hidden grayscale invert opacity-20 border border-white/5 mb-16 shadow-inner">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126906.848821952!2d106.6341235!3d-6.2293867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8e288e0f9b3%3A0x401576d15932020!2sCiledug%2C%20Kota%20Tangerang%2C%20Banten!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="max-w-4xl mx-auto glass-panel p-12 text-center">
+            <h2 class="text-2xl font-black mb-10 tracking-widest uppercase">Base of Operations</h2>
+            <div class="rounded-3xl overflow-hidden grayscale invert opacity-20 border border-white/5 mb-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126906.848821952!2d106.6341235!3d-6.2293867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8e288e0f9b3%3A0x401576d15932020!2sCiledug%2C%20Kota%20Tangerang%2C%20Banten!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <div class="flex flex-col items-center gap-6">
-                 <a href="https://wa.me/6285283212205" class="aura-btn">
-                    <span>Mulai Konsultasi Strategis</span>
-                </a>
-                <p class="text-gray-700 text-[10px] font-bold tracking-[1.5em] uppercase mt-10">OMNIVERSAL AGENCY © 2026</p>
-            </div>
+            <p class="text-gray-700 text-[10px] font-bold tracking-[1.5em] uppercase">OMNIVERSAL AGENCY © 2026 — MASTERED BY CILEDUGPROMO</p>
         </div>
     </footer>
 
