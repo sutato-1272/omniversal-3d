@@ -6,165 +6,220 @@
     
     <title>OMNIVERSAL | Jasa Landing Page 3D & Spatial UI Ciledug</title>
     <meta name="description" content="Dominasi pasar dengan Landing Page Interaktif 3D. Spesialis Spatial UI, Glassmorphism, dan High-Conversion Design untuk brand elit.">
-    <meta name="keywords" content="Jasa Landing Page, Web 3D, Spline 3D, Landing Page Mewah, SEO Friendly Web">
+    <meta name="keywords" content="Jasa Landing Page, Web 3D, Spline 3D, Landing Page Mewah, SEO Friendly Web, Ciledug Promo">
     <meta name="author" content="Ciledug Promo Network">
+
+    <meta name="google-site-verification" content="PASTE_KODE_VERIFIKASI_GSC_DISINI" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONTOH_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-CONTOH_ID'); 
+      gtag('config', 'G-CONTOH_ID'); 
+    </script>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
     
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="OMNIVERSAL | Jasa Landing Page 3D Masa Depan">
-    <meta property="og:description" content="Ubah pengunjung menjadi pembeli militan dengan pengalaman visual imersif.">
-    
+    // Ganti '1234567890' dengan ID Pixel Anda
+    fbq('init', 'MASUKAN_ID_PIXEL_DISINI');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=MASUKAN_ID_PIXEL_DISINI&ev=PageView&noscript=1"
+    /></noscript>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
     
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.28/build/spline-viewer.js"></script>
 
     <style>
-        :root { --accent: #818cf8; --secondary: #ec4899; }
+        :root { 
+            --neon-cyan: #00f3ff; 
+            --neon-pink: #bc13fe; 
+            --bg-dark: #050505;
+        }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #050505; /* Fallback color jika 3D gagal load */
+            background-color: var(--bg-dark); 
             color: #fff; 
             margin: 0; 
             overflow-x: hidden; 
         }
 
-        /* NAVIGATION BAR */
+        /* NAVIGATION BAR (SOLID DARK) */
         .glass-nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             width: 90%; max-width: 1000px; z-index: 1000;
-            background: rgba(0, 0, 0, 0.5); /* Lebih gelap dikit biar baca teks enak */
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 999px;
-            padding: 10px 20px;
-            display: flex; justify-content: space-between; align-items: center;
-            transition: all 0.5s ease;
-        }
-
-        /* BUTTON AJAIB (BORDER BEAM) */
-        .border-beam-btn {
-            position: relative; display: inline-flex; padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px);
-            border-radius: 12px; overflow: hidden; font-weight: 800;
-            letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;
-            color: white;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .border-beam-btn::before {
-            content: ''; position: absolute; inset: -200%;
-            background: conic-gradient(from 0deg, transparent 0deg, transparent 280deg, var(--accent) 320deg, var(--secondary) 360deg);
-            animation: rotate-beam 3s linear infinite; z-index: -2;
-        }
-        .border-beam-btn::after {
-            content: ''; position: absolute; inset: 1.5px;
-            background: #000; border-radius: 11px; z-index: -1;
-        }
-        @keyframes rotate-beam { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .border-beam-btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px rgba(129, 140, 248, 0.5); }
-
-        /* PANELS */
-        .glass-panel {
-            background: rgba(20, 20, 20, 0.6); /* Lebih gelap untuk readability */
+            background: rgba(0, 0, 0, 0.85); /* Lebih gelap & pekat */
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 999px;
+            padding: 12px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.1); /* Subtle Cyan Glow */
         }
-        .text-gradient { background: linear-gradient(135deg, #fff 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* BUTTON SIAGA 1 (AGRESIF) */
+        .cyber-btn {
+            position: relative; display: inline-flex; padding: 1rem 2.5rem;
+            background: #000; 
+            border: 1px solid var(--neon-cyan);
+            border-radius: 8px; overflow: hidden; font-weight: 800;
+            letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.85rem;
+            color: var(--neon-cyan);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+            text-decoration: none;
+        }
+        .cyber-btn:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* PANELS (HIGH CONTRAST) */
+        .glass-panel {
+            background: rgba(10, 10, 10, 0.90); /* Hampir solid hitam agar teks jelas */
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+        .text-gradient { 
+            background: linear-gradient(90deg, #fff 0%, var(--neon-cyan) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        /* MAP CYBER FRAME */
+        .cyber-map-container {
+            position: relative;
+            border: 2px solid #333;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.15); /* Neon Glow */
+        }
+        /* Efek Scanning Line di atas Peta */
+        .cyber-map-container::after {
+            content: "SYSTEM ONLINE: TRACKING LOCATION...";
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--neon-cyan);
+            font-size: 10px; font-weight: bold; letter-spacing: 2px;
+            padding: 8px; text-align: center;
+            border-top: 1px solid var(--neon-cyan);
+        }
 
         /* 3D WRAPPER */
-        .spline-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
-        
-        /* Map Fix */
-        .map-container iframe { width: 100%; height: 100%; border:0; filter: invert(90%) hue-rotate(180deg); }
+        .spline-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.8; }
+        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 100px; padding-bottom: 50px; }
     </style>
 </head>
 <body>
 
-    <header class="glass-nav shadow-lg shadow-indigo-500/10">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-black text-xs shadow-inner">O</div>
-            <span class="font-black tracking-tighter italic text-sm">OMNI<span class="text-indigo-400">VERSAL.</span></span>
+    <header class="glass-nav">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-cyan-500 rounded flex items-center justify-center font-black text-xs text-black shadow-[0_0_10px_rgba(6,182,212,0.8)]">OP</div>
+            <span class="font-bold tracking-tighter text-sm text-white">CILEDUG<span class="text-cyan-400">PROMO.</span></span>
         </div>
-        <nav class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-gray-300">
-            <a href="#fitur" class="hover:text-white transition-colors">Tech</a>
-            <a href="#lokasi" class="hover:text-white transition-colors">Location</a>
-        </nav>
-        <a href="https://wa.me/6285283212205?text=Halo%20Admin%20Omniversal,%20saya%20tertarik%20bikin%20website%203D" class="text-[10px] font-black bg-white text-black px-4 py-2 rounded-full uppercase tracking-tighter hover:bg-indigo-50 transition-colors">
-            Consult
+        
+        <a href="https://wa.me/6285283212205?text=Halo%20Admin,%20saya%20mau%20konsultasi%20Landing%20Page%20Premium" target="_blank" class="text-[10px] font-black bg-white text-black px-5 py-2 rounded-full uppercase tracking-widest hover:bg-cyan-400 hover:text-black hover:shadow-[0_0_15px_rgba(34,211,238,0.8)] transition-all">
+            Consult Now
         </a>
     </header>
 
-    <section class="hero-section px-6 overflow-hidden">
+    <section class="hero-section px-6">
         
-        <div class="spline-wrap opacity-60 md:opacity-100">
+        <div class="spline-wrap">
             <spline-viewer url="https://prod.spline.design/6Wq1Q7YRyM6Z9n3Z/scene.splinecode"></spline-viewer>
         </div>
 
         <div class="max-w-7xl mx-auto w-full relative z-10">
-            <div class="max-w-3xl glass-panel p-8 md:p-12 border-l-4 border-l-indigo-500 shadow-2xl shadow-indigo-900/20">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded text-[10px] font-bold text-indigo-300 uppercase tracking-widest animate-pulse">
-                        ● Web 3.0 Generation
+            <div class="max-w-3xl glass-panel p-8 md:p-14 border-l-4 border-l-cyan-500">
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="px-3 py-1 bg-cyan-900/40 border border-cyan-500/50 rounded text-[10px] font-bold text-cyan-300 uppercase tracking-[0.2em] animate-pulse">
+                        ● System Status: Online
                     </span>
                 </div>
-                <h1 class="text-4xl md:text-[80px] font-black leading-[1] mb-6 tracking-tighter">
-                    THE <span class="text-gradient font-light italic">FUTURE</span> <br> IS SPATIAL.
+                
+                <h1 class="text-4xl md:text-[70px] font-black leading-[1.1] mb-8 tracking-tight text-white">
+                    WEB 3D MASA DEPAN <br>
+                    <span class="text-gradient italic">ADA DI TANGAN ANDA.</span>
                 </h1>
-                <p class="text-gray-300 text-sm md:text-lg mb-10 leading-relaxed font-light max-w-xl">
-                    Hentikan konversi yang rendah. Kami membangun <span class="text-white font-bold italic">Landing Page Interaktif</span> yang membius mata dan meyakinkan logika pelanggan Anda secara instan.
+                
+                <p class="text-gray-200 text-sm md:text-lg mb-12 leading-relaxed font-normal max-w-xl border-l-2 border-gray-700 pl-6">
+                    Lupakan website jadul yang membosankan. Saatnya beralih ke teknologi <b class="text-white">Spatial UI</b> yang membuat kompetitor Anda terlihat ketinggalan zaman. Cepat, Elegan, dan Mematikan.
                 </p>
                 
-                <a href="https://wa.me/6285283212205?text=Halo,%20saya%20mau%20order%20Landing%20Page%20Omniversal" class="border-beam-btn group">
-                    <span class="group-hover:text-indigo-300 transition-colors">Mulai Dominasi Pasar →</span>
-                </a>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <a href="https://wa.me/6285283212205?text=Halo%20Admin,%20saya%20mau%20ORDER%20template%20OMNIVERSAL%203D.%20Mohon%20info%20lanjut" target="_blank" class="cyber-btn text-center flex justify-center items-center">
+                        MULAI DOMINASI PASAR
+                    </a>
+                    
+                    <a href="#lokasi" class="px-8 py-4 rounded-lg border border-gray-700 text-gray-300 font-bold text-xs tracking-widest uppercase hover:bg-white/10 transition-all text-center flex items-center justify-center">
+                        Cek Markas Kami ↓
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="fitur" class="py-24 px-6 relative z-10 bg-gradient-to-b from-transparent to-black">
+    <section class="py-20 px-6 relative z-10 bg-black">
         <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
-            <div class="glass-panel p-8 hover:border-indigo-500/50 transition-all duration-500 group cursor-pointer hover:-translate-y-2">
-                <div class="w-12 h-12 rounded-full bg-indigo-900/30 flex items-center justify-center text-indigo-400 mb-6 group-hover:bg-indigo-500 group-hover:text-white transition-all">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-white">Wussss Performance</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Kodingan bersih tanpa bloatware. Loading secepat kilat meski menggunakan aset 3D kompleks.</p>
+            <div class="glass-panel p-8 hover:border-cyan-500/80 transition-all duration-300 group cursor-pointer hover:-translate-y-2 bg-[#0a0a0a]">
+                <h3 class="text-xl font-bold mb-3 text-white group-hover:text-cyan-400">⚡ Speed Demon</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">Loading super cepat. Tidak ada waktu terbuang. Pengunjung langsung melihat konten dalam hitungan detik.</p>
             </div>
             
-            <div class="glass-panel p-8 hover:border-indigo-500/50 transition-all duration-500 group cursor-pointer hover:-translate-y-2">
-                <div class="w-12 h-12 rounded-full bg-pink-900/30 flex items-center justify-center text-pink-400 mb-6 group-hover:bg-pink-500 group-hover:text-white transition-all">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-white">SEO Supremacy</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Daftarkan URL Anda dan biarkan meta-tag kami bekerja menarik robot Google ke puncak ranking.</p>
+            <div class="glass-panel p-8 hover:border-pink-500/80 transition-all duration-300 group cursor-pointer hover:-translate-y-2 bg-[#0a0a0a]">
+                <h3 class="text-xl font-bold mb-3 text-white group-hover:text-pink-400">💎 Premium Aura</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">Desain kelas atas yang biasanya memakan biaya puluhan juta, kini bisa Anda miliki dengan harga terjangkau.</p>
             </div>
 
-            <div class="glass-panel p-8 hover:border-indigo-500/50 transition-all duration-500 group cursor-pointer hover:-translate-y-2">
-                <div class="w-12 h-12 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 14.535a11.99 11.99 0 008.132 11.322L12 26l.868-.143a11.99 11.99 0 008.132-11.322l-.932-8.52z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-white">Conversion Psych</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Setiap elemen desain dibuat berdasarkan data perilaku manusia untuk hasil closing maksimal.</p>
+            <div class="glass-panel p-8 hover:border-indigo-500/80 transition-all duration-300 group cursor-pointer hover:-translate-y-2 bg-[#0a0a0a]">
+                <h3 class="text-xl font-bold mb-3 text-white group-hover:text-indigo-400">🎯 Sniper Conversion</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">Struktur layout yang dirancang khusus untuk mengunci fokus pengunjung ke tombol "Beli".</p>
             </div>
         </div>
     </section>
 
-    <footer id="lokasi" class="py-12 px-6 relative z-10 bg-black">
-        <div class="max-w-4xl mx-auto glass-panel p-8 md:p-12 text-center border-t border-indigo-900/30">
-            <h2 class="text-xl md:text-2xl font-black mb-8 tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">
-                Base of Operations
+    <footer id="lokasi" class="py-16 px-6 relative z-10 bg-[#050505]">
+        <div class="max-w-4xl mx-auto glass-panel p-8 md:p-12 text-center border-t border-cyan-900/30">
+            <h2 class="text-2xl font-black mb-8 tracking-widest uppercase text-white">
+                <span class="text-cyan-500">HQ</span> TARGET LOCATION
             </h2>
             
-            <div class="map-container rounded-3xl overflow-hidden opacity-80 border border-white/10 mb-8 h-[250px] md:h-[300px] shadow-lg">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.336173009776!2d106.70997737593685!3d-6.219325993768677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f984a96e5791%3A0x6291e07527636e05!2sCiledug%2C%20Tangerang%20City%2C%20Banten!5e0!3m2!1sen!2sid!4v1709456789012!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="cyber-map-container h-[350px] w-full mb-10">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.368812674258!2d106.7088743749903!3d-6.214989993772594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fa0320070105%3A0x5e23926618585973!2sCiledug%20Promo!5e0!3m2!1sid!2sid!4v1737356500000!5m2!1sid!2sid" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
 
-            <p class="text-gray-600 text-[10px] font-bold tracking-[0.5em] md:tracking-[1em] uppercase">
-                OMNIVERSAL AGENCY © 2026<br>
-                <span class="text-indigo-800">MASTERED BY CILEDUGPROMO</span>
+            <p class="text-gray-500 text-[10px] font-bold tracking-[0.3em] uppercase mb-4">
+                OPERATIONAL BASE: CILEDUG RAYA<br>
+                TANGERANG - INDONESIA
             </p>
+            <div class="text-[10px] text-cyan-600 font-mono">
+                SYSTEM VER: OMNIVERSAL 2.0 // SECURE CONNECTION
+            </div>
         </div>
     </footer>
 
