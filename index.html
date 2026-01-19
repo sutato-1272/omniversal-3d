@@ -4,46 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>OMNIVERSAL | Jasa Landing Page 3D & Spatial UI Terpercaya</title>
+    <title>OMNIVERSAL | Jasa Landing Page 3D & Spatial UI Ciledug</title>
     <meta name="description" content="Dominasi pasar dengan Landing Page Interaktif 3D. Spesialis Spatial UI, Glassmorphism, dan High-Conversion Design untuk brand elit.">
     <meta name="keywords" content="Jasa Landing Page, Web 3D, Spline 3D, Landing Page Mewah, SEO Friendly Web">
-    <meta name="author" content="Omniversal Agency">
+    <meta name="author" content="Ciledug Promo Network">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://omniversal-3d.vercel.app/">
     <meta property="og:title" content="OMNIVERSAL | Jasa Landing Page 3D Masa Depan">
     <meta property="og:description" content="Ubah pengunjung menjadi pembeli militan dengan pengalaman visual imersif.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1000">
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.28/build/spline-viewer.js"></script>
 
     <style>
         :root { --accent: #818cf8; --secondary: #ec4899; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #000; color: #fff; margin: 0; overflow-x: hidden; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #050505; /* Fallback color jika 3D gagal load */
+            color: #fff; 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
 
-        /* HEADER KACA TRANSPARAN (RE-IMPLEMENTED) */
+        /* NAVIGATION BAR */
         .glass-nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             width: 90%; max-width: 1000px; z-index: 1000;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(0, 0, 0, 0.5); /* Lebih gelap dikit biar baca teks enak */
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 999px;
-            padding: 12px 24px;
-            display: flex; justify-content: space-between; items-center;
+            padding: 10px 20px;
+            display: flex; justify-content: space-between; align-items: center;
             transition: all 0.5s ease;
         }
-        .glass-nav:hover { background: rgba(255, 255, 255, 0.07); border-color: var(--accent); }
 
-        /* BORDER BEAM BUTTON (GILA VERSION) */
+        /* BUTTON AJAIB (BORDER BEAM) */
         .border-beam-btn {
-            position: relative; display: inline-flex; padding: 1rem 2.5rem;
-            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);
+            position: relative; display: inline-flex; padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px);
             border-radius: 12px; overflow: hidden; font-weight: 800;
-            letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem;
+            letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;
+            color: white;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .border-beam-btn::before {
@@ -53,97 +58,113 @@
         }
         .border-beam-btn::after {
             content: ''; position: absolute; inset: 1.5px;
-            background: rgba(0, 0, 0, 0.9); border-radius: 11px; z-index: -1;
+            background: #000; border-radius: 11px; z-index: -1;
         }
         @keyframes rotate-beam { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .border-beam-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(129, 140, 248, 0.3); }
+        .border-beam-btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px rgba(129, 140, 248, 0.5); }
 
-        /* GRID CONTENT SYSTEM */
+        /* PANELS */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 32px;
+            background: rgba(20, 20, 20, 0.6); /* Lebih gelap untuk readability */
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 24px;
         }
         .text-gradient { background: linear-gradient(135deg, #fff 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* SPLINE WRAPPER */
-        .spline-wrap { position: absolute; inset: 0; z-index: 0; }
+        /* 3D WRAPPER */
+        .spline-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
         .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+        
+        /* Map Fix */
+        .map-container iframe { width: 100%; height: 100%; border:0; filter: invert(90%) hue-rotate(180deg); }
     </style>
 </head>
 <body>
 
-    <header class="glass-nav">
+    <header class="glass-nav shadow-lg shadow-indigo-500/10">
         <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center font-black text-xs">O</div>
+            <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-black text-xs shadow-inner">O</div>
             <span class="font-black tracking-tighter italic text-sm">OMNI<span class="text-indigo-400">VERSAL.</span></span>
         </div>
-        <nav class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-gray-400">
-            <a href="#" class="hover:text-white">Tech</a>
-            <a href="#" class="hover:text-white">Showcase</a>
-            <a href="#" class="hover:text-white">SEO</a>
+        <nav class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest text-gray-300">
+            <a href="#fitur" class="hover:text-white transition-colors">Tech</a>
+            <a href="#lokasi" class="hover:text-white transition-colors">Location</a>
         </nav>
-        <a href="https://wa.me/6285283212205" class="text-[10px] font-black bg-white text-black px-4 py-2 rounded-full uppercase tracking-tighter">Consult</a>
+        <a href="https://wa.me/6285283212205?text=Halo%20Admin%20Omniversal,%20saya%20tertarik%20bikin%20website%203D" class="text-[10px] font-black bg-white text-black px-4 py-2 rounded-full uppercase tracking-tighter hover:bg-indigo-50 transition-colors">
+            Consult
+        </a>
     </header>
 
-    <section class="hero-section px-6">
-        <div class="spline-wrap">
+    <section class="hero-section px-6 overflow-hidden">
+        
+        <div class="spline-wrap opacity-60 md:opacity-100">
             <spline-viewer url="https://prod.spline.design/6Wq1Q7YRyM6Z9n3Z/scene.splinecode"></spline-viewer>
         </div>
 
         <div class="max-w-7xl mx-auto w-full relative z-10">
-            <div class="max-w-3xl glass-panel p-8 md:p-16 border-l-4 border-l-indigo-500 shadow-2xl">
+            <div class="max-w-3xl glass-panel p-8 md:p-12 border-l-4 border-l-indigo-500 shadow-2xl shadow-indigo-900/20">
                 <div class="flex items-center gap-3 mb-6">
-                    <span class="px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded text-[10px] font-bold text-indigo-400 uppercase tracking-widest">Web 3.0 Generation</span>
+                    <span class="px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded text-[10px] font-bold text-indigo-300 uppercase tracking-widest animate-pulse">
+                        ● Web 3.0 Generation
+                    </span>
                 </div>
-                <h1 class="text-5xl md:text-[85px] font-black leading-[0.9] mb-8 tracking-tighter">
+                <h1 class="text-4xl md:text-[80px] font-black leading-[1] mb-6 tracking-tighter">
                     THE <span class="text-gradient font-light italic">FUTURE</span> <br> IS SPATIAL.
                 </h1>
-                <p class="text-gray-400 text-base md:text-xl mb-12 leading-relaxed font-light">
+                <p class="text-gray-300 text-sm md:text-lg mb-10 leading-relaxed font-light max-w-xl">
                     Hentikan konversi yang rendah. Kami membangun <span class="text-white font-bold italic">Landing Page Interaktif</span> yang membius mata dan meyakinkan logika pelanggan Anda secara instan.
                 </p>
                 
-                <a href="https://wa.me/6285283212205" class="border-beam-btn">
-                    <span>Mulai Dominasi Pasar →</span>
+                <a href="https://wa.me/6285283212205?text=Halo,%20saya%20mau%20order%20Landing%20Page%20Omniversal" class="border-beam-btn group">
+                    <span class="group-hover:text-indigo-300 transition-colors">Mulai Dominasi Pasar →</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 relative z-10 bg-black/40 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-            <div class="glass-panel p-10 hover:border-indigo-500/40 transition-all group">
-                <div class="text-indigo-500 mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+    <section id="fitur" class="py-24 px-6 relative z-10 bg-gradient-to-b from-transparent to-black">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
+            <div class="glass-panel p-8 hover:border-indigo-500/50 transition-all duration-500 group cursor-pointer hover:-translate-y-2">
+                <div class="w-12 h-12 rounded-full bg-indigo-900/30 flex items-center justify-center text-indigo-400 mb-6 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold mb-4">Wussss Performance</h3>
-                <p class="text-gray-500 text-sm leading-relaxed font-light">Kodingan bersih tanpa bloatware. Loading secepat kilat meski menggunakan aset 3D kompleks.</p>
+                <h3 class="text-xl font-bold mb-3 text-white">Wussss Performance</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Kodingan bersih tanpa bloatware. Loading secepat kilat meski menggunakan aset 3D kompleks.</p>
             </div>
             
-            <div class="glass-panel p-10 hover:border-indigo-500/40 transition-all group">
-                <div class="text-indigo-500 mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div class="glass-panel p-8 hover:border-indigo-500/50 transition-all duration-500 group cursor-pointer hover:-translate-y-2">
+                <div class="w-12 h-12 rounded-full bg-pink-900/30 flex items-center justify-center text-pink-400 mb-6 group-hover:bg-pink-500 group-hover:text-white transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold mb-4">SEO Supremacy</h3>
-                <p class="text-gray-500 text-sm leading-relaxed font-light">Daftarkan URL Anda dan biarkan meta-tag kami bekerja menarik robot Google ke puncak ranking.</p>
+                <h3 class="text-xl font-bold mb-3 text-white">SEO Supremacy</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Daftarkan URL Anda dan biarkan meta-tag kami bekerja menarik robot Google ke puncak ranking.</p>
             </div>
 
-            <div class="glass-panel p-10 hover:border-indigo-500/40 transition-all group">
-                <div class="text-indigo-500 mb-6 group-hover:scale-110 transition-transform">
-                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 14.535a11.99 11.99 0 008.132 11.322L12 26l.868-.143a11.99 11.99 0 008.132-11.322l-.932-8.52z"></path></svg>
+            <div class="glass-panel p-8 hover:border-indigo-500/50 transition-all duration-500 group cursor-pointer hover:-translate-y-2">
+                <div class="w-12 h-12 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 14.535a11.99 11.99 0 008.132 11.322L12 26l.868-.143a11.99 11.99 0 008.132-11.322l-.932-8.52z"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold mb-4">Conversion Psych</h3>
-                <p class="text-gray-500 text-sm leading-relaxed font-light">Setiap elemen desain dibuat berdasarkan data perilaku manusia untuk hasil closing maksimal.</p>
+                <h3 class="text-xl font-bold mb-3 text-white">Conversion Psych</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Setiap elemen desain dibuat berdasarkan data perilaku manusia untuk hasil closing maksimal.</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-24 px-6 relative z-10">
-        <div class="max-w-4xl mx-auto glass-panel p-12 text-center">
-            <h2 class="text-2xl font-black mb-10 tracking-widest uppercase">Base of Operations</h2>
-            <div class="rounded-3xl overflow-hidden grayscale invert opacity-20 border border-white/5 mb-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126906.848821952!2d106.6341235!3d-6.2293867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8e288e0f9b3%3A0x401576d15932020!2sCiledug%2C%20Kota%20Tangerang%2C%20Banten!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <footer id="lokasi" class="py-12 px-6 relative z-10 bg-black">
+        <div class="max-w-4xl mx-auto glass-panel p-8 md:p-12 text-center border-t border-indigo-900/30">
+            <h2 class="text-xl md:text-2xl font-black mb-8 tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">
+                Base of Operations
+            </h2>
+            
+            <div class="map-container rounded-3xl overflow-hidden opacity-80 border border-white/10 mb-8 h-[250px] md:h-[300px] shadow-lg">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.336173009776!2d106.70997737593685!3d-6.219325993768677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f984a96e5791%3A0x6291e07527636e05!2sCiledug%2C%20Tangerang%20City%2C%20Banten!5e0!3m2!1sen!2sid!4v1709456789012!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <p class="text-gray-700 text-[10px] font-bold tracking-[1.5em] uppercase">OMNIVERSAL AGENCY © 2026 — MASTERED BY CILEDUGPROMO</p>
+
+            <p class="text-gray-600 text-[10px] font-bold tracking-[0.5em] md:tracking-[1em] uppercase">
+                OMNIVERSAL AGENCY © 2026<br>
+                <span class="text-indigo-800">MASTERED BY CILEDUGPROMO</span>
+            </p>
         </div>
     </footer>
 
